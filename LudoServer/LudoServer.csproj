@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
+    <ProjectGuid>{CF470BB7-CED4-4EF7-9F7F-02E81785AD0D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>LudoServer</RootNamespace>
+    <AssemblyName>LudoServer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="System.Json" />
+    <Reference Include="System.Json.Microsoft" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TcpServer\Server.cs" />
+    <Compile Include="TcpServer\Structures\ClientData.cs" />
+    <Compile Include="TcpServer\Structures\ListenerStateEvent.cs" />
+    <Compile Include="TcpServer\Structures\DisconnectionEvent.cs" />
+    <Compile Include="TcpServer\Structures\ConnectionEvent.cs" />
+    <Compile Include="TcpServer\Structures\ConnectionData.cs" />
+    <Compile Include="TcpServer\Structures\HandlerMessageEvent.cs" />
+    <Compile Include="TcpServer\Structures\ReclaimerStateEvent.cs" />
+    <Compile Include="TcpServer\Structures\ReclaimEvent.cs" />
+    <Compile Include="TcpServer\Structures\HandlerMessageData.cs" />
+    <Compile Include="TcpServer\ClientHandler\IClientHandler.cs" />
+    <Compile Include="TcpServer\ClientHandler\ClientHandler.cs" />
+    <Compile Include="TcpServer\ClientListener\ClientListener.cs" />
+    <Compile Include="TcpServer\ClientListener\IClientListener.cs" />
+    <Compile Include="TcpServer\ClientReclaimer\ClientReclaimer.cs" />
+    <Compile Include="TcpServer\ClientReclaimer\IClientReclaimer.cs" />
+    <Compile Include="ProgramHelperFunctions.cs" />
+    <Compile Include="TcpServer\IServer.cs" />
+    <Compile Include="TcpServer\Structures\ServerMessageData.cs" />
+    <Compile Include="TcpServer\Structures\ServerMessageEvent.cs" />
+    <Compile Include="GameServer\GServer.cs" />
+    <Compile Include="GameServer\User.cs" />
+    <Compile Include="TcpServer\TcpProtocol\Protocol.cs" />
+    <Compile Include="TcpServer\TcpProtocol\Package.cs" />
+    <Compile Include="LudoProtocol\LudoPackage.cs" />
+    <Compile Include="LudoProtocol\LudoProtocol.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GameServer\" />
+    <Folder Include="TcpServer\" />
+    <Folder Include="TcpServer\Structures\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
