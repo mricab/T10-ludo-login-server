@@ -107,6 +107,7 @@ namespace server
             Clients.TryGetValue(Connections, out clientData);
             clientData.Handler.RegisterObserver(this);
             clientData.Handler.Start();
+            clientData.Handler.Send(Protocol.GetPackage("connected", key));
         }
 
         private void StopClient(int key)
